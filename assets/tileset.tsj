@@ -8,7 +8,7 @@
  "margin":0,
  "name":"tileset",
  "spacing":0,
- "tilecount":24,
+ "tilecount":21,
  "tiledversion":"1.9.2",
  "tileheight":64,
  "tiles":[
@@ -66,24 +66,6 @@
         }, 
         {
          "class":"object",
-         "id":32,
-         "image":"sprites\/arrow_circle.png",
-         "imageheight":64,
-         "imagewidth":64,
-         "properties":[
-                {
-                 "name":"solid",
-                 "type":"bool",
-                 "value":false
-                }, 
-                {
-                 "name":"type",
-                 "type":"string",
-                 "value":"entrance"
-                }]
-        }, 
-        {
-         "class":"object",
          "id":33,
          "image":"sprites\/arrow_head.png",
          "imageheight":64,
@@ -107,6 +89,11 @@
          "imageheight":64,
          "imagewidth":64,
          "properties":[
+                {
+                 "name":"hp",
+                 "type":"float",
+                 "value":5
+                }, 
                 {
                  "name":"radius",
                  "type":"float",
@@ -138,7 +125,12 @@
                 {
                  "name":"height",
                  "type":"float",
-                 "value":40
+                 "value":35
+                }, 
+                {
+                 "name":"hp",
+                 "type":"float",
+                 "value":10
                 }, 
                 {
                  "name":"shape",
@@ -158,7 +150,7 @@
                 {
                  "name":"width",
                  "type":"float",
-                 "value":50
+                 "value":60
                 }]
         }, 
         {
@@ -228,6 +220,11 @@
                  "value":40
                 }, 
                 {
+                 "name":"hp",
+                 "type":"float",
+                 "value":10
+                }, 
+                {
                  "name":"shape",
                  "type":"string",
                  "value":"rect"
@@ -259,6 +256,11 @@
                  "name":"height",
                  "type":"float",
                  "value":64
+                }, 
+                {
+                 "name":"hp",
+                 "type":"float",
+                 "value":1000
                 }, 
                 {
                  "name":"shape",
@@ -294,6 +296,11 @@
                  "value":32
                 }, 
                 {
+                 "name":"hp",
+                 "type":"float",
+                 "value":5
+                }, 
+                {
                  "name":"shape",
                  "type":"string",
                  "value":"rect"
@@ -322,9 +329,14 @@
          "imagewidth":64,
          "properties":[
                 {
+                 "name":"hp",
+                 "type":"float",
+                 "value":5000
+                }, 
+                {
                  "name":"radius",
                  "type":"float",
-                 "value":32
+                 "value":30
                 }, 
                 {
                  "name":"shape",
@@ -350,33 +362,15 @@
          "imagewidth":64,
          "properties":[
                 {
-                 "name":"radius",
+                 "name":"entity",
+                 "type":"string",
+                 "value":"player"
+                }, 
+                {
+                 "name":"hp",
                  "type":"float",
-                 "value":20
+                 "value":100
                 }, 
-                {
-                 "name":"shape",
-                 "type":"string",
-                 "value":"circle"
-                }, 
-                {
-                 "name":"solid",
-                 "type":"bool",
-                 "value":true
-                }, 
-                {
-                 "name":"type",
-                 "type":"string",
-                 "value":"entity"
-                }]
-        }, 
-        {
-         "class":"object",
-         "id":44,
-         "image":"sprites\/purple_character.png",
-         "imageheight":64,
-         "imagewidth":64,
-         "properties":[
                 {
                  "name":"radius",
                  "type":"float",
@@ -393,32 +387,9 @@
                  "value":true
                 }, 
                 {
-                 "name":"type",
-                 "type":"string",
-                 "value":"entity"
-                }]
-        }, 
-        {
-         "class":"object",
-         "id":56,
-         "image":"sprites\/yellow_character.png",
-         "imageheight":64,
-         "imagewidth":64,
-         "properties":[
-                {
-                 "name":"radius",
+                 "name":"speed",
                  "type":"float",
-                 "value":20
-                }, 
-                {
-                 "name":"shape",
-                 "type":"string",
-                 "value":"circle"
-                }, 
-                {
-                 "name":"solid",
-                 "type":"bool",
-                 "value":true
+                 "value":3
                 }, 
                 {
                  "name":"type",
@@ -434,6 +405,16 @@
          "imagewidth":64,
          "properties":[
                 {
+                 "name":"entity",
+                 "type":"string",
+                 "value":"enemy"
+                }, 
+                {
+                 "name":"hp",
+                 "type":"float",
+                 "value":100
+                }, 
+                {
                  "name":"radius",
                  "type":"float",
                  "value":20
@@ -447,6 +428,11 @@
                  "name":"solid",
                  "type":"bool",
                  "value":true
+                }, 
+                {
+                 "name":"speed",
+                 "type":"float",
+                 "value":3
                 }, 
                 {
                  "name":"type",
@@ -479,7 +465,7 @@
                 {
                  "name":"value",
                  "type":"float",
-                 "value":50
+                 "value":25
                 }]
         }, 
         {
@@ -489,11 +475,6 @@
          "imageheight":64,
          "imagewidth":64,
          "properties":[
-                {
-                 "name":"name",
-                 "type":"string",
-                 "value":"arrow"
-                }, 
                 {
                  "name":"solid",
                  "type":"bool",
@@ -528,9 +509,19 @@
                  "value":"60"
                 }, 
                 {
+                 "name":"height",
+                 "type":"float",
+                 "value":50
+                }, 
+                {
                  "name":"range",
                  "type":"string",
                  "value":"melee"
+                }, 
+                {
+                 "name":"shape",
+                 "type":"string",
+                 "value":"rect"
                 }, 
                 {
                  "name":"solid",
@@ -538,9 +529,19 @@
                  "value":false
                 }, 
                 {
+                 "name":"takeRadius",
+                 "type":"float",
+                 "value":10
+                }, 
+                {
                  "name":"type",
                  "type":"string",
-                 "value":"tool"
+                 "value":"weapon"
+                }, 
+                {
+                 "name":"width",
+                 "type":"float",
+                 "value":40
                 }]
         }, 
         {
@@ -551,9 +552,9 @@
          "imagewidth":64,
          "properties":[
                 {
-                 "name":"ammo",
-                 "type":"string",
-                 "value":"arrow"
+                 "name":"ammoId",
+                 "type":"int",
+                 "value":50
                 }, 
                 {
                  "name":"damage",
@@ -561,9 +562,19 @@
                  "value":"5"
                 }, 
                 {
+                 "name":"height",
+                 "type":"float",
+                 "value":40
+                }, 
+                {
                  "name":"range",
                  "type":"string",
                  "value":"range"
+                }, 
+                {
+                 "name":"shape",
+                 "type":"string",
+                 "value":"rect"
                 }, 
                 {
                  "name":"solid",
@@ -571,9 +582,19 @@
                  "value":false
                 }, 
                 {
+                 "name":"takeRadius",
+                 "type":"float",
+                 "value":10
+                }, 
+                {
                  "name":"type",
                  "type":"string",
-                 "value":"tool"
+                 "value":"weapon"
+                }, 
+                {
+                 "name":"width",
+                 "type":"float",
+                 "value":50
                 }]
         }, 
         {
@@ -599,9 +620,19 @@
                  "value":"40"
                 }, 
                 {
+                 "name":"height",
+                 "type":"float",
+                 "value":50
+                }, 
+                {
                  "name":"range",
                  "type":"string",
                  "value":"melee"
+                }, 
+                {
+                 "name":"shape",
+                 "type":"string",
+                 "value":"rect"
                 }, 
                 {
                  "name":"solid",
@@ -609,9 +640,19 @@
                  "value":false
                 }, 
                 {
+                 "name":"takeRadius",
+                 "type":"float",
+                 "value":10
+                }, 
+                {
                  "name":"type",
                  "type":"string",
-                 "value":"tool"
+                 "value":"weapon"
+                }, 
+                {
+                 "name":"width",
+                 "type":"float",
+                 "value":20
                 }]
         }],
  "tilewidth":64,

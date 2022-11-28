@@ -1,55 +1,41 @@
-import {TileSet} from "./TileSet.js";
-import {SpriteManager} from "./SpriteManager.js";
-import {Vec} from "./core.js";
-import {Map, parseMap} from "./Map.js";
+import { Vec, TileSet } from "./core";
+import { createGameObject } from "./engine";
+import { GameMap, parseMap } from "./map";
+import { Game } from "./game";
 
 // TODO менеджеры: карты, игры, спрайтов, событий, физики, звука
 
+const app = document.getElementById("app");
 
-let app = document.getElementById("app");
-console.log(app);
-
-let canvas = document.createElement("canvas");
-canvas.style.margin = 'auto';
-canvas.style.display = 'block';
+const canvas = document.createElement("canvas");
+canvas.style.margin = "auto";
+canvas.style.display = "block";
 canvas.height = canvas.width = 900;
 app.appendChild(canvas);
 
-let ctx = canvas.getContext("2d");
-ctx.fillStyle = "#ebac0c"
-ctx.fillRect(-50, -50, 200, 200);
+const ctx = canvas.getContext("2d");
 ctx.scale(0.7, 0.7);
-ctx.save()
+ctx.save();
 
-let img = new Image(50, 50);
-img.src = "./assets/sprites/chest.png";
+void (async function () {
+  const ts = new TileSet("./assets", "tileset.tsj");
+  await ts.load();
+  console.log(ts);
 
-// img.onload = function (event) {
-//     ctx.save();
-//     ctx.translate(50 + 32, 50 + 32);
-//     ctx.rotate(/*-Math.PI / 4*/ 0);
-//     // ctx.scale(-1, -1)
-//     ctx.translate(-32, -32);
-//     ctx.drawImage(img, 0, 0);
-//     ctx.restore();
-// }
+  const [field, objects] = await parseMap("./assets/map.tmj");
 
-void async function () {
-    let ts = new TileSet('./assets', 'tileset.tsj');
-    await ts.load();
-    console.log(ts);
-    // let sm = new SpriteManager(ts);
-    // await sm.load();
-    // console.log(sm);
+  console.log(field, objects);
 
-    let [field, objects] = await parseMap('./assets/map.tmj');
-    let map = new Map(ts, field);
-    console.log(map);
+  const map = new GameMap(ts, field);
+  console.log(map);
 
-    console.log(map.get(new Vec(0, 0), true));
-    console.log(map.get(new Vec(64, 64)));
+  // console.log(map.getRealSize());
+  // canvas.height = map.getRealSize().y;
+  // canvas.width = map.getRealSize().x;
 
-    map.draw(ctx);
+  console.log(map.get(new Vec(0, 0), true));
+  console.log(map.get(new Vec(64, 64)));
 
-    ctx.drawImage(sm.get(48).image, 0, 0)
-}()
+  const gobj = objects.objects.map((o) => createGameObject(o, ts));
+  let game = new Game(ctx, ts, map, gobj);
+})();

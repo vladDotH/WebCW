@@ -15,8 +15,8 @@
             "scale": 0.75,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 697.9999999999999,
-                "y": 346
+                "x": 381.99999999999994,
+                "y": 471.3333333333333
             }
         },
         "tileset.tsj": {
@@ -36,7 +36,7 @@
         "map.tmj"
     ],
     "project": "game.tiled-project",
-    "property.type": "string",
+    "property.type": "float",
     "recentFiles": [
         "tileset.tsj",
         "map.tmj"
