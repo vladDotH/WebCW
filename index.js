@@ -1,5 +1,5 @@
-import { Vec, TileSet } from "./core";
-import { createGameObject } from "./engine";
+import { TileSet, Vec } from "./core";
+import { createGameObject, SoundManager } from "./engine";
 import { GameMap, parseMap } from "./map";
 import { Game } from "./game";
 
@@ -10,12 +10,11 @@ const app = document.getElementById("app");
 const canvas = document.createElement("canvas");
 canvas.style.margin = "auto";
 canvas.style.display = "block";
-canvas.height = canvas.width = 900;
 app.appendChild(canvas);
 
 const ctx = canvas.getContext("2d");
-ctx.scale(0.7, 0.7);
-ctx.save();
+let size = Math.min(window.innerWidth, window.innerHeight);
+[ctx.canvas.width, ctx.canvas.height] = [size, size];
 
 void (async function () {
   const ts = new TileSet("./assets", "tileset.tsj");
@@ -37,5 +36,6 @@ void (async function () {
   console.log(map.get(new Vec(64, 64)));
 
   const gobj = objects.objects.map((o) => createGameObject(o, ts));
+  await SoundManager.load("./assets/sounds");
   let game = new Game(ctx, ts, map, gobj);
 })();

@@ -33,7 +33,7 @@ export class Shape {
 export class Circle extends Shape {
   /** @override */
   inside(dot) {
-    return this.obj.pos.diff(dot).len() <= this.obj.props.radius;
+    return this.obj.pos.range(dot) <= this.obj.props.radius;
   }
 
   /** @override */

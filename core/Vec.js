@@ -101,6 +101,18 @@ export class Vec {
   vecProj(v) {
     return this.norm().mult(this.proj(v));
   }
+
+  /** @param {Vec} v
+   * @return {Vec} */
+  compare(v) {
+    return new this.diff(v).sign();
+  }
+
+  /** @param {Vec} v
+   * @return {number} */
+  range(v) {
+    return this.diff(v).len();
+  }
 }
 
 export const axisX = new Vec(1, 0);

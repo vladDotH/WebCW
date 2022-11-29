@@ -92,7 +92,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":5
+                 "value":20
                 }, 
                 {
                  "name":"radius",
@@ -130,7 +130,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":10
+                 "value":30
                 }, 
                 {
                  "name":"shape",
@@ -222,7 +222,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":10
+                 "value":30
                 }, 
                 {
                  "name":"shape",
@@ -260,7 +260,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":1000
+                 "value":500
                 }, 
                 {
                  "name":"shape",
@@ -298,7 +298,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":5
+                 "value":20
                 }, 
                 {
                  "name":"shape",
@@ -331,7 +331,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":5000
+                 "value":1000
                 }, 
                 {
                  "name":"radius",
@@ -369,7 +369,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":100
+                 "value":10000
                 }, 
                 {
                  "name":"radius",
@@ -432,7 +432,7 @@
                 {
                  "name":"speed",
                  "type":"float",
-                 "value":3
+                 "value":2
                 }, 
                 {
                  "name":"type",
@@ -481,6 +481,11 @@
                  "value":false
                 }, 
                 {
+                 "name":"speed",
+                 "type":"float",
+                 "value":30
+                }, 
+                {
                  "name":"type",
                  "type":"string",
                  "value":"projectile"
@@ -495,18 +500,18 @@
          "properties":[
                 {
                  "name":"angle",
-                 "type":"string",
-                 "value":"10"
+                 "type":"float",
+                 "value":45
                 }, 
                 {
                  "name":"damage",
                  "type":"string",
-                 "value":"10"
+                 "value":"15"
                 }, 
                 {
                  "name":"dist",
-                 "type":"string",
-                 "value":"60"
+                 "type":"float",
+                 "value":20
                 }, 
                 {
                  "name":"height",
@@ -527,11 +532,6 @@
                  "name":"solid",
                  "type":"bool",
                  "value":false
-                }, 
-                {
-                 "name":"takeRadius",
-                 "type":"float",
-                 "value":10
                 }, 
                 {
                  "name":"type",
@@ -559,7 +559,7 @@
                 {
                  "name":"damage",
                  "type":"string",
-                 "value":"5"
+                 "value":"10"
                 }, 
                 {
                  "name":"height",
@@ -582,11 +582,6 @@
                  "value":false
                 }, 
                 {
-                 "name":"takeRadius",
-                 "type":"float",
-                 "value":10
-                }, 
-                {
                  "name":"type",
                  "type":"string",
                  "value":"weapon"
@@ -606,18 +601,18 @@
          "properties":[
                 {
                  "name":"angle",
-                 "type":"string",
-                 "value":"5"
+                 "type":"float",
+                 "value":30
                 }, 
                 {
                  "name":"damage",
                  "type":"string",
-                 "value":"15"
+                 "value":"20"
                 }, 
                 {
                  "name":"dist",
-                 "type":"string",
-                 "value":"40"
+                 "type":"float",
+                 "value":20
                 }, 
                 {
                  "name":"height",
@@ -638,11 +633,6 @@
                  "name":"solid",
                  "type":"bool",
                  "value":false
-                }, 
-                {
-                 "name":"takeRadius",
-                 "type":"float",
-                 "value":10
                 }, 
                 {
                  "name":"type",
