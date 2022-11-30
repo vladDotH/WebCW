@@ -1,6 +1,7 @@
 import { GameObject } from "./GameObject.js";
 import { axisX, axisY, Vec } from "../../core";
-import { solidCollisionsUpdate, WeaponTypes } from "../index.js";
+import { solidCollisionsUpdate } from "./index.js";
+import { WeaponTypes } from "./Weapon.js";
 
 export const MAX_DROP_RANGE = 96;
 export const BASE_ATTACK_DELAY = 700;

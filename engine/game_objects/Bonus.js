@@ -1,5 +1,5 @@
 import { GameObject } from "./GameObject.js";
-import { ObjectTypes } from "../index.js";
+import { ObjectTypes } from "./index.js";
 
 /** @enum {number} */
 export const BonusEffects = {

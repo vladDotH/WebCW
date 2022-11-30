@@ -49,39 +49,6 @@ export class GameObject {
       ...this.size.flat()
     );
     ctx.restore();
-
-    // this.drawBorders(ctx);
-  }
-
-  // TODO убрать тест границ
-  /** @deprecated */
-  drawBorders(ctx) {
-    ctx.save();
-    if (this.props.shape === "circle") {
-      ctx.beginPath();
-      ctx.arc(...this.pos.flat(), this.props.radius, 0, 2 * Math.PI, false);
-      ctx.lineWidth = 5;
-      ctx.strokeStyle = "#003300";
-      ctx.stroke();
-    }
-    if (this.props.shape === "rect") {
-      ctx.beginPath();
-      ctx.transform(
-        ...this.rot.flat(),
-        -this.rot.y,
-        this.rot.x,
-        ...this.pos.flat()
-      );
-
-      ctx.rect(
-        ...new Vec(this.props.width, this.props.height).mult(-0.5).flat(),
-        ...new Vec(this.props.width, this.props.height).flat()
-      );
-      ctx.lineWidth = 5;
-      ctx.strokeStyle = "#003300";
-      ctx.stroke();
-    }
-    ctx.restore();
   }
 
   /** @param {Vec} dot

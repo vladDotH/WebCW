@@ -1,15 +1,15 @@
-import { TileSet, Vec } from "./core";
+import { TileSet } from "./core";
 import { createGameObject, SoundManager } from "./engine";
 import { GameMap, parseMap } from "./map";
 import { Game } from "./game";
 import {
-  renderRecords,
-  hide,
   appear,
-  disappear,
-  show,
   delay,
+  disappear,
+  hide,
+  renderRecords,
   saveRecord,
+  show,
 } from "./util.js";
 
 const ANIM_DELAY = 300;
