@@ -8,7 +8,7 @@
  "margin":0,
  "name":"tileset",
  "spacing":0,
- "tilecount":21,
+ "tilecount":26,
  "tiledversion":"1.9.2",
  "tileheight":64,
  "tiles":[
@@ -62,6 +62,19 @@
                  "name":"passable",
                  "type":"bool",
                  "value":false
+                }]
+        }, 
+        {
+         "class":"tile",
+         "id":60,
+         "image":"sprites\/sand.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "properties":[
+                {
+                 "name":"passable",
+                 "type":"bool",
+                 "value":true
                 }]
         }, 
         {
@@ -298,7 +311,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":20
+                 "value":25
                 }, 
                 {
                  "name":"shape",
@@ -369,7 +382,7 @@
                 {
                  "name":"hp",
                  "type":"float",
-                 "value":10000
+                 "value":100
                 }, 
                 {
                  "name":"radius",
@@ -643,6 +656,118 @@
                  "name":"width",
                  "type":"float",
                  "value":20
+                }]
+        }, 
+        {
+         "class":"object",
+         "id":56,
+         "image":"sprites\/arrow.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "properties":[
+                {
+                 "name":"height",
+                 "type":"float",
+                 "value":25
+                }, 
+                {
+                 "name":"hp",
+                 "type":"float",
+                 "value":700
+                }, 
+                {
+                 "name":"shape",
+                 "type":"string",
+                 "value":"rect"
+                }, 
+                {
+                 "name":"solid",
+                 "type":"bool",
+                 "value":true
+                }, 
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"object"
+                }, 
+                {
+                 "name":"width",
+                 "type":"float",
+                 "value":64
+                }]
+        }, 
+        {
+         "class":"object",
+         "id":57,
+         "image":"sprites\/cart.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "properties":[
+                {
+                 "name":"height",
+                 "type":"float",
+                 "value":32
+                }, 
+                {
+                 "name":"hp",
+                 "type":"float",
+                 "value":50
+                }, 
+                {
+                 "name":"shape",
+                 "type":"string",
+                 "value":"rect"
+                }, 
+                {
+                 "name":"solid",
+                 "type":"bool",
+                 "value":true
+                }, 
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"object"
+                }, 
+                {
+                 "name":"width",
+                 "type":"float",
+                 "value":50
+                }]
+        }, 
+        {
+         "class":"object",
+         "id":58,
+         "image":"sprites\/track.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "properties":[
+                {
+                 "name":"solid",
+                 "type":"bool",
+                 "value":false
+                }, 
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"object"
+                }]
+        }, 
+        {
+         "class":"object",
+         "id":59,
+         "image":"sprites\/track_curve.png",
+         "imageheight":64,
+         "imagewidth":64,
+         "properties":[
+                {
+                 "name":"solid",
+                 "type":"bool",
+                 "value":false
+                }, 
+                {
+                 "name":"type",
+                 "type":"string",
+                 "value":"object"
                 }]
         }],
  "tilewidth":64,

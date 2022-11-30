@@ -14,6 +14,8 @@ export const SoundManager = {
     bow_shoot: "bow_shoot.wav",
     arrow_impact: "arrow_impact.wav",
     drink: "drink.wav",
+    dead: "dead.mp3",
+    win: "win.wav",
   },
 
   sounds: {},
@@ -32,6 +34,8 @@ export const SoundManager = {
         `${path}/${this.soundsPaths.arrow_impact}`
       ),
       drink: new Sound(this.ctx, `${path}/${this.soundsPaths.drink}`),
+      dead: new Sound(this.ctx, `${path}/${this.soundsPaths.dead}`),
+      win: new Sound(this.ctx, `${path}/${this.soundsPaths.win}`),
     };
     await Promise.all(Object.values(this.sounds).map((s) => s.load(this.ctx)));
   },

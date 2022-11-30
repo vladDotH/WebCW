@@ -19,11 +19,6 @@ export class Entity extends GameObject {
   /** @type {Vec} */
   attackingRot = Vec.fromAngle(0);
 
-  /** @returns {Vec} */
-  get fullRot() {
-    return this.rot.rot(this.attackingRot);
-  }
-
   /** @override */
   update(engine) {
     solidCollisionsUpdate(
@@ -47,6 +42,7 @@ export class Entity extends GameObject {
                 ? MELEE_ATTACKING_ROT
                 : MELEE_ATTACKING_ROT_INV
             );
+      this.rotate(this.rot);
     }
 
     super.update(engine);
@@ -56,13 +52,21 @@ export class Entity extends GameObject {
   }
 
   /** @override */
+  rotate(rot) {
+    rot = rot.rot(this.attackingRot);
+    super.rotate(rot);
+  }
+
+  /** @override */
+  move(velocity) {
+    if (velocity.len() > this.props.speed)
+      velocity = velocity.norm().mult(this.props.speed);
+    super.move(velocity);
+  }
+
+  /** @override */
   draw(ctx) {
-    let rot = this.rot;
-    this.rot = this.fullRot;
     super.draw(ctx);
-    this.rot = rot;
-    ctx.font = "30px Consolas";
-    ctx.fillStyle = "red";
     ctx.fillText(
       this.props.hp + "hp",
       ...this.pos.diff(this.size.mult(1 / 2)).flat()
@@ -74,8 +78,7 @@ export class Entity extends GameObject {
   /** @param {Engine} engine */
   attack(engine) {
     if (!this.attacking) {
-      this.attackAnim = 1;
-      this.attacking = true;
+      this.attackAnim = +(this.attacking = true);
       this?.weapon?.attack(engine);
       setTimeout(() => (this.attacking = false), BASE_ATTACK_DELAY);
       setTimeout(() => {
@@ -98,10 +101,4 @@ export class Entity extends GameObject {
       this.weapon = null;
     }
   }
-
-  // /** @override */
-  // receiveDamage(engine, value) {
-  //   super.receiveDamage(engine, value);
-  //
-  // }
 }

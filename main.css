@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'KJV1611';
+    font-style: normal;
+    font-weight: normal;
+    src: url("./KJV1611.otf") format("opentype");
+}
+
+body {
+    margin: 0;
+    font-family: 'KJV1611', sans-serif;
+    text-align: center;
+    font-size: 2em;
+    color: saddlebrown;
+    display: none;
+}
+
+* {
+    font: inherit;
+    color: inherit;
+}
+
+canvas {
+    margin: auto;
+}
+
+button {
+    padding: 0.3em;
+    background-color: antiquewhite;
+    border-radius: 0.3em;
+    transition: all 0.1s ease-in-out;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    background-color: bisque;
+    scale: 0.98;
+}
+
+.center {
+    display: block;
+    margin: auto;
+}
+
+body > * {
+    transition: all 0.29s ease-in-out;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#end {
+    font-size: 2em;
+}
+
+#end span {
+    font-size: 1.5em;
+}
+
+#winMsg {
+    color: forestgreen;
+}
+
+#gameOverMsg {
+    color: firebrick;
+}
+
+#inputSection {
+    font-size: 2em;
+}
+
+#inputSection > div > div > *, #end > div > div > * {
+    margin-bottom: 1.5em;
+}
+
+#records {
+    padding: 2em;
+}
+
+#records > table {
+    margin: auto;
+    border-spacing: 1em;
+}
+
+#records > table th, #records > table td {
+    padding: 0.5em;
+}
+
+#records span, #inputSection span {
+    color: firebrick;
+}

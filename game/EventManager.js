@@ -51,9 +51,11 @@ export class EventManager {
     });
     window.addEventListener("keydown", (ev) => {
       this.state.moves.add(getKeyEvent(ev));
+      ev.preventDefault();
     });
     window.addEventListener("keyup", (ev) => {
       this.state.moves.delete(getKeyEvent(ev));
+      ev.preventDefault();
     });
   }
 }

@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <title>Game</title>
 
-    <style>body { margin: 0 }</style>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<div id="app"></div>
+<canvas id="canvas"></canvas>
+
+<section id="end">
+    <div class="center">
+        <div>
+            <span id="gameOverMsg">Игра окончена</span>
+            <span id="winMsg">Победа</span>
+            <br>
+            <button>Перейти к рекордам</button>
+        </div>
+    </div>
+</section>
+
+<section id="inputSection">
+    <div class="center">
+        <div>
+            <label for="nameInput">
+                <span>В</span>ведите имя игрока:
+            </label>
+            <br>
+            <input type="text" id="nameInput">
+            <br>
+            <button><span>Н</span>ачать</button>
+        </div>
+    </div>
+</section>
+
+<section id="records">
+    <span>Т</span>аблица рекордов:
+    <table>
+        <thead>
+        <tr>
+            <td><span>И</span>мя игрока</td>
+            <td><span>В</span>ремя</td>
+        </tr>
+        </thead>
+    </table>
+</section>
 
 <script src="index.js" type="module"></script>
 </body>

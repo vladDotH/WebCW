@@ -32,7 +32,6 @@ export class Game {
     this.ts = ts;
     this.map = map;
     this.objects = objects;
-    console.log(objects);
 
     this.player = objects.find((o) => o.props.entity === "player");
     this.exit = objects.find((o) => o.type === ObjectTypes.EXIT);
@@ -48,31 +47,44 @@ export class Game {
     this.enemies = objects
       .filter((o) => o.props.entity === "enemy")
       .map((o) => new EnemyController(this.engine, o));
+  }
 
-    setInterval(() => {
-      // console.log(this.exit.isPlayerStepped(this.player));
+  /** @returns {Promise<boolean>} */
+  async startGame() {
+    return new Promise((resolve) => {
+      let gameCycle = setInterval(() => {
+        let mousePos = this.em.state.mousePos.mult(1 / this.mapScale);
+        this.player.rot = mousePos.diff(this.player.pos).norm();
+        this.player.velocity = new Vec(
+          this.em.state.moves.has(KeyEvents.RIGHT) -
+            this.em.state.moves.has(KeyEvents.LEFT),
+          this.em.state.moves.has(KeyEvents.DOWN) -
+            this.em.state.moves.has(KeyEvents.UP)
+        )
+          .norm()
+          .mult(this.player.props.speed);
 
-      let mousePos = this.em.state.mousePos.mult(1 / this.mapScale);
-      this.player.rot = mousePos.diff(this.player.pos).norm();
-      this.player.velocity = new Vec(
-        this.em.state.moves.has(KeyEvents.RIGHT) -
-          this.em.state.moves.has(KeyEvents.LEFT),
-        this.em.state.moves.has(KeyEvents.DOWN) -
-          this.em.state.moves.has(KeyEvents.UP)
-      )
-        .norm()
-        .mult(this.player.props.speed);
+        if (this.em.state.moves.has(KeyEvents.SPACE))
+          this.player.dropWeapon(this.engine, mousePos);
+        if (this.em.state.mouseClick) this.player.attack(this.engine);
 
-      if (this.em.state.moves.has(KeyEvents.SPACE))
-        this.player.dropWeapon(this.engine, mousePos);
+        this.enemies.forEach((e) => e.update());
+        this.engine.update();
 
-      if (this.em.state.mouseClick) this.player.attack(this.engine);
+        if (this.player.props.hp <= 0) {
+          resolve(false);
+          clearInterval(gameCycle);
+        } else if (this.exit.isPlayerStepped(this.player)) {
+          resolve(true);
+          clearInterval(gameCycle);
+        }
+      }, 10);
+      this.draw();
+    });
+  }
 
-      this.enemies.forEach((e) => e.update());
-      this.engine.update();
-    }, 10);
-    this.engine.update();
-    this.draw();
+  restoreCavas() {
+    this.ctx.scale(1 / this.mapScale, 1 / this.mapScale);
   }
 
   draw() {

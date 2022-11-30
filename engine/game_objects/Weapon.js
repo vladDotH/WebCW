@@ -34,9 +34,9 @@ export class Weapon extends GameObject {
     // console.log(this.owner?.attackAnim);
     if (this.owner) {
       this.pos = this.owner.pos.add(
-        this.owner.fullRot.rot(WEAPON_ANGLE).norm().mult(WEAPON_TRANSLATION)
+        this.owner.rot.rot(WEAPON_ANGLE).norm().mult(WEAPON_TRANSLATION)
       );
-      this.rot = this.owner.fullRot;
+      this.rotate(this.owner.rot);
     }
   }
 
