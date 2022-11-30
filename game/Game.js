@@ -32,8 +32,6 @@ export class Game {
     this.ts = ts;
     this.map = map;
     this.objects = objects;
-
-    this.player = objects.find((o) => o.props.entity === "player");
     this.exit = objects.find((o) => o.type === ObjectTypes.EXIT);
     this.em = new EventManager(ctx);
 
@@ -43,10 +41,12 @@ export class Game {
     );
     ctx.scale(this.mapScale, this.mapScale);
 
-    this.engine = new Engine(map, objects, ctx);
+    this.engine = new Engine(map, objects);
     this.enemies = objects
       .filter((o) => o.props.entity === "enemy")
       .map((o) => new EnemyController(this.engine, o));
+
+    this.player = this.engine.player;
   }
 
   /** @returns {Promise<boolean>} */
@@ -83,7 +83,7 @@ export class Game {
     });
   }
 
-  restoreCavas() {
+  restoreCanvas() {
     this.ctx.scale(1 / this.mapScale, 1 / this.mapScale);
   }
 

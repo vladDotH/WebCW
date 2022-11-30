@@ -12,14 +12,14 @@ import {
   saveRecord,
 } from "./util.js";
 
+const ANIM_DELAY = 300;
+
 const canvas = document.getElementById("canvas"),
   input = document.getElementById("inputSection"),
   end = document.getElementById("end"),
   winMsg = document.getElementById("winMsg"),
   gameOverMsg = document.getElementById("gameOverMsg"),
   records = document.getElementById("records");
-
-const ANIM_DELAY = 300;
 
 const ctx = canvas.getContext("2d");
 let size = Math.min(window.innerWidth, window.innerHeight);
@@ -52,7 +52,7 @@ async function startGame(ts) {
     res = await game.startGame();
     disappear(canvas);
     await delay(ANIM_DELAY);
-    game.restoreCavas();
+    game.restoreCanvas();
     if (!res) break;
   }
   hide(canvas);
