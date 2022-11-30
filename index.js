@@ -45,9 +45,12 @@ async function startGame(ts) {
   let res = false;
   for (let i = 0; i < levels.length; i++) {
     const [field, objects] = await parseMap(`${assets}/${levels[i]}`);
-    const map = new GameMap(ts, field);
-    const gobj = objects.objects.map((o) => createGameObject(o, ts));
-    let game = new Game(ctx, ts, map, gobj);
+    let game = new Game(
+      ctx,
+      ts,
+      new GameMap(ts, field),
+      objects.objects.map((o) => createGameObject(o, ts))
+    );
     appear(canvas);
     res = await game.startGame();
     disappear(canvas);

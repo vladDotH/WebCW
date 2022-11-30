@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "tileset.tsj",
+    "activeFile": "level3.tmj",
     "expandedProjectPaths": [
         "."
     ],
@@ -51,8 +51,8 @@
             "scale": 0.75,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 983.3333333333333,
-                "y": 980.6666666666666
+                "x": 744.6666666666667,
+                "y": 784.6666666666665
             }
         },
         "map.tmj": {
@@ -89,11 +89,11 @@
     "project": "game.tiled-project",
     "property.type": "float",
     "recentFiles": [
-        "level3.tmj",
-        "level2.tmj",
-        "level1.tmj",
-        "map.tmj",
         "tileset.tsj",
+        "map.tmj",
+        "level1.tmj",
+        "level2.tmj",
+        "level3.tmj",
         "level11.tmj"
     ],
     "tileset.lastUsedFormat": "json",
